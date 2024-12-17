@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resources/fonts/raw/NotoSansSC-Medium.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://mods-unpacked/Lasonbrah-betterSaver/extra/save_bar.gd" type="Script" id=2]
+[ext_resource path="res://resources/fonts/raw/Anybody-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://ui/menus/global/my_menu_button.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="save_bar" type="ColorRect"]
+margin_right = 639.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 70 )
+color = Color( 0.137255, 0.137255, 0.137255, 1 )
+script = ExtResource( 2 )
+
+[node name="title" type="Label" parent="."]
+margin_left = 7.0
+margin_right = 201.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "无存档 No Save Data"
+
+[node name="saveTime" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 30.0
+margin_right = 109.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 2 )
+text = "01/01 00:00"
+
+[node name="charactor" type="Label" parent="."]
+margin_left = 111.0
+margin_top = 31.0
+margin_right = 239.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 3 )
+text = "角色Char：全能者"
+
+[node name="wave" type="Label" parent="."]
+margin_left = 318.0
+margin_top = -1.0
+margin_right = 511.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 4 )
+text = "当前波次Wave：20"
+
+[node name="gold" type="Label" parent="."]
+margin_left = 319.0
+margin_top = 32.0
+margin_right = 507.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 5 )
+text = "当前金币Gold：99999999"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 562.0
+margin_top = 2.0
+margin_right = 637.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 0, 57 )
+action_mode = 0
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Button"]
+margin_top = -2.0
+margin_right = 75.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 6 )
+text = "读取"
+align = 1
+
+[node name="Label2" type="Label" parent="Button"]
+margin_left = 13.0
+margin_top = 34.0
+margin_right = 63.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 7 )
+text = "LOAD"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Button"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1, 1 )
+scale = Vector2( 1.15625, 0.875 )
+normal = ExtResource( 4 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
